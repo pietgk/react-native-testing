@@ -19,13 +19,16 @@ export {render}
 
 const Stack = createStackNavigator()
 
-export const renderWithNavigation = ({ screens = {}, navigatorConfig = {} } = {})=>
+export const renderWithNavigation = ({
+  screens = {},
+  navigatorConfig = {},
+} = {}) =>
   render(
     <NavigationContainer>
       <Stack.Navigator {...navigatorConfig}>
-        {
-          Object.keys(screens).map(name=> <Stack.Screen key={name} name={name} component={screens[name]} />)
-        }
+        {Object.keys(screens).map(name => (
+          <Stack.Screen key={name} name={name} component={screens[name]} />
+        ))}
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer>,
   )

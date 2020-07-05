@@ -10,7 +10,8 @@
     "test:clearCache": "jest --clearCache",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",

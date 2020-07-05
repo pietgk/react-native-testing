@@ -4,9 +4,10 @@ import Login from './Login'
 import {useNavigation} from '@react-navigation/native'
 import AsyncStorage from '@react-native-community/async-storage'
 
-const ENDPOINT_URL = "https://e2c168f9-97f3-42e1-8b31-57f4ab52a3bc.mock.pstmn.io/api/login"
+const ENDPOINT_URL =
+  'https://e2c168f9-97f3-42e1-8b31-57f4ab52a3bc.mock.pstmn.io/api/login'
 // @ts-ignore
-const formSubmissionReducer = (state, action)=> {
+const formSubmissionReducer = (state, action) => {
   switch (action.type) {
     case 'START': {
       return {status: 'pending', responseData: null, errorMessage: null}
@@ -31,7 +32,7 @@ const formSubmissionReducer = (state, action)=> {
 }
 
 // @ts-ignore
-const useFormSubmission = ({endpoint, data})=> {
+const useFormSubmission = ({endpoint, data}) => {
   const [state, dispatch] = React.useReducer(formSubmissionReducer, {
     status: 'idle',
     responseData: null,
@@ -42,7 +43,7 @@ const useFormSubmission = ({endpoint, data})=> {
 
   React.useEffect(() => {
     if (fetchBody) {
-      (async ()=> {
+      (async () => {
         dispatch({type: 'START'})
         try {
           const response = await fetch(endpoint, {
@@ -55,7 +56,7 @@ const useFormSubmission = ({endpoint, data})=> {
           const responseData = await response.json()
           dispatch({type: 'RESOLVE', responseData})
         } catch (error) {
-            dispatch({type: 'REJECT', error})
+          dispatch({type: 'REJECT', error})
         }
       })()
     }
@@ -64,7 +65,7 @@ const useFormSubmission = ({endpoint, data})=> {
   return state
 }
 
-const Spinner = ()=> {
+const Spinner = () => {
   return (
     <View accessibilityLabel="loading...">
       <Text>loading...</Text>
@@ -84,8 +85,8 @@ export default () => {
   // @ts-ignore
   React.useEffect(() => {
     if (token) {
-      (async ()=> await AsyncStorage.setItem('token', token))()
-      navigation.navigate("Home")
+      (async () => await AsyncStorage.setItem('token', token))()
+      navigation.navigate('Home')
     }
   }, [token])
 
@@ -96,7 +97,9 @@ export default () => {
 
   return (
     <>
-      <Login onSubmit={(data: React.SetStateAction<null>) => setFormData(data)} />
+      <Login
+        onSubmit={(data: React.SetStateAction<null>) => setFormData(data)}
+      />
       {status === 'pending' ? <Spinner /> : null}
       <Text>{errorMessage}</Text>
     </>

@@ -4,8 +4,10 @@ import {fireEvent, render, wait} from '@testing-library/react-native'
 import App from '../src/components/App'
 import {expect, it, jest} from '@jest/globals'
 
-const mockedSetItem = jest.fn();
-jest.mock('@react-native-community/async-storage', () => ({setItem: mockedSetItem}))
+const mockedSetItem = jest.fn()
+jest.mock('@react-native-community/async-storage', () => ({
+  setItem: mockedSetItem,
+}))
 
 it('renders/navigats throughout app screens', async () => {
   const {getByText} = render(<App />)

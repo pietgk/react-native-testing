@@ -10,7 +10,12 @@ import {ThemeProvider} from '../utils/theme'
 
 const Stack = createStackNavigator()
 
-export const SCREENS: Record<string,string> = {HOME: "Home", COUNTER: "Counter", LOGIN: "Login", EASYBUTTON: "EasyButton"}
+export const SCREENS: Record<string, string> = {
+  HOME: 'Home',
+  COUNTER: 'Counter',
+  LOGIN: 'Login',
+  EASYBUTTON: 'EasyButton',
+}
 export default () => {
   return (
     <>
