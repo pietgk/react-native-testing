@@ -2,9 +2,8 @@ import 'react-native'
 import React from 'react'
 import {fireEvent, render, wait} from '@testing-library/react-native'
 import App from '../src/components/App'
-import {describe, expect, it, jest} from '@jest/globals'
-import AsyncStorage from '@react-native-community/async-storage';
-//mocking async storage module
+import {expect, it, jest} from '@jest/globals'
+
 const mockedSetItem = jest.fn();
 jest.mock('@react-native-community/async-storage', () => ({setItem: mockedSetItem}))
 

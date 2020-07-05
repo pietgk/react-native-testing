@@ -2,7 +2,6 @@ import 'react-native'
 import React from 'react'
 import {fireEvent, render} from '@testing-library/react-native'
 import Counter from "../src/components/Counter"
-import {expect, it} from '@jest/globals'
 
 it('renders correctly', () => {
   const {getByText, getByTestId, debug} = render(<Counter />)

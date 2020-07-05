@@ -2,7 +2,6 @@ import 'react-native'
 import React from 'react'
 import EasyButton from '../src/components/EasyButton'
 import {render} from '../src/test/test-utils'
-import {expect, it} from '@jest/globals'
 
 it('renders with the light styles for the light theme', () => {
   const {getByTestId, getByText} = render(<EasyButton>Click me!</EasyButton>)

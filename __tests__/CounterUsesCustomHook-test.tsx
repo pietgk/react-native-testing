@@ -8,7 +8,6 @@ import {
 import CounterUsesCustomHook from '../src/components/CounterUsesCustomHook'
 import useCounter from '../src/hooks/useCounter'
 import {renderHook} from '@testing-library/react-hooks'
-import {describe, expect, it, test} from '@jest/globals'
 
 //testing with the component
 it('exposes the count and increment/decrement functions', () => {
