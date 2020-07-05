@@ -43,7 +43,7 @@ const useFormSubmission = ({endpoint, data}) => {
 
   React.useEffect(() => {
     if (fetchBody) {
-      (async () => {
+      const dispatchFetch = async () => {
         dispatch({type: 'START'})
         try {
           const response = await fetch(endpoint, {
@@ -58,7 +58,8 @@ const useFormSubmission = ({endpoint, data}) => {
         } catch (error) {
           dispatch({type: 'REJECT', error})
         }
-      })()
+      }
+      dispatchFetch()
     }
   }, [fetchBody, endpoint])
 
@@ -85,10 +86,11 @@ export default () => {
   // @ts-ignore
   React.useEffect(() => {
     if (token) {
-      (async () => await AsyncStorage.setItem('token', token))()
+      const store = async () => await AsyncStorage.setItem('token', token)
+      store()
       navigation.navigate('Home')
     }
-  }, [token])
+  }, [token, navigation])
 
   if (status === 'resolved') {
     // TODO: navigate away on submission success

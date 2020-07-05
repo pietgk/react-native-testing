@@ -28,7 +28,7 @@ it('renders correctly', async () => {
   const mockNavigate = jest.fn()
   // @ts-ignore
   useNavigation.mockImplementation(() => ({navigate: mockNavigate}))
-  const fakeResponse = Promise.resolve({token: 'fake-token'})
+  //Promise.resolve({token: 'fake-token'})
   // @ts-ignore
   global.fetch.mockResolvedValueOnce({
     json: () => Promise.resolve({token: 'fake-token'}),

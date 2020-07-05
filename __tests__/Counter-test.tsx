@@ -4,7 +4,7 @@ import {fireEvent, render} from '@testing-library/react-native'
 import Counter from '../src/components/Counter'
 
 it('renders correctly', () => {
-  const {getByText, getByTestId, debug} = render(<Counter />)
+  const {getByText, getByTestId /*, debug*/} = render(<Counter />)
   // debug()
   const decrement = getByTestId(/decrement/i)
   const increment = getByTestId(/increment/i)

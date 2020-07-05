@@ -7,7 +7,7 @@ import {renderHook} from '@testing-library/react-hooks'
 
 //testing with the component
 it('exposes the count and increment/decrement functions', () => {
-  const {getByText, getByTestId, debug} = render(<CounterUsesCustomHook />)
+  const {getByText, getByTestId /*, debug*/} = render(<CounterUsesCustomHook />)
   // debug()
   const decrement = getByTestId(/decrement/i)
   const increment = getByTestId(/increment/i)
@@ -32,7 +32,7 @@ function setup({initialProps} = {}) {
 }
 
 //testing without component
-test('exposes the count and increment/decrement functions', () => {
+test('exposes setup count and increment/decrement functions', () => {
   const result = setup()
   expect(result.current.count).toBe(0)
   act(() => result.current.increment())
@@ -55,7 +55,7 @@ test('allows customization of the step', () => {
   expect(result.current.count).toBe(0)
 })
 
-test('exposes the count and increment/decrement functions', () => {
+test('exposes renderHook count and increment/decrement functions', () => {
   const {result} = renderHook(useCounter)
   expect(result.current.count).toBe(0)
   act(() => result.current.increment())

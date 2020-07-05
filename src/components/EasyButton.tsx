@@ -6,12 +6,9 @@ export default (props: any) => {
   // @ts-ignore
   const [theme] = useTheme()
   const {backgroundColor, color} = styles[theme]
+  const style = {backgroundColor, padding: 8}
   return (
-    <TouchableOpacity
-      testID="easy-button"
-      style={{backgroundColor, padding: 8}}
-      {...props}
-    >
+    <TouchableOpacity testID="easy-button" style={style} {...props}>
       <Text style={{color}}>{props.children || 'Click me!'}</Text>
     </TouchableOpacity>
   )

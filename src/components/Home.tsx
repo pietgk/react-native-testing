@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react'
 import {
   Button,
@@ -6,7 +7,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  // TouchableOpacity,
   View,
 } from 'react-native'
 import {Colors} from 'react-native/Libraries/NewAppScreen'
